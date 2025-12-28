@@ -1,0 +1,38 @@
+<h1>Pending Complaints</h1>
+
+<table class="complaints-table">
+  <thead>
+  <tr>
+    <th>ID</th>
+    <th>Citizen</th>
+    <th>Problem</th>
+    <th>Address</th>
+    <th>Date</th>
+    <th>Action</th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <tr *ngFor="let complaint of pendingComplaints">
+    <td>{{ complaint.id }}</td>
+    <td>{{ complaint.name }}</td>
+    <td>{{ complaint.description }}</td>
+    <td>{{ complaint.address }}</td>
+    <td>{{ complaint.createdAt }}</td>
+    <td>
+      <button class="accept" (click)="acceptComplaint(complaint.id)">
+        Accept
+      </button>
+      <button class="reject" (click)="rejectComplaint(complaint.id)">
+        Reject
+      </button>
+    </td>
+  </tr>
+
+  <tr *ngIf="pendingComplaints.length === 0">
+    <td colspan="6" class="empty">
+      No pending complaints
+    </td>
+  </tr>
+  </tbody>
+</table>

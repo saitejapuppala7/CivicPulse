@@ -1,0 +1,210 @@
+.container {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #f4f6f9;
+  min-height: 100vh;
+}
+
+.header {
+  background-color: #0b3c6d;
+  color: #ffffff;
+  padding: 16px 24px;
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 22px;
+}
+
+.nav-bar {
+  background-color: #ffffff;
+  border-bottom: 1px solid #d0d7de;
+  padding: 12px 0;
+  display: flex;
+  justify-content: center;
+}
+.nav-btn:first-child {
+  margin-left: auto;
+}
+.nav-inner {
+  width: 100%;
+  max-width: 1100px;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 20px;
+  gap:100px;
+}
+
+
+
+
+.nav-spacer {
+  width: 30%;
+}
+
+.nav-links {
+  display: flex;
+  gap: 20px;
+}
+
+.nav-btn {
+  background: none;
+  border: none;
+  font-size: 14px;
+  font-weight: bold;
+  color: #0b3c6d;
+  cursor: pointer;
+  padding: 10px 20px;
+  border-radius: 4px;
+
+}
+
+.nav-btn:hover {
+  background-color: #e6edf5;
+}
+
+.content-layout {
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+}
+
+.sidebar {
+  width: 260px;
+  background-color: #e6edf5;
+  border-radius: 4px;
+  padding: 16px;
+}
+
+.profile-card {
+  text-align: center;
+}
+
+.profile-avatar img {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  border: 2px solid #0b3c6d;
+  object-fit: cover;
+  background-color: #ffffff;
+  margin-bottom: 10px;
+}
+
+.profile-name {
+  margin: 6px 0;
+  font-size: 18px;
+  color: #0b3c6d;
+}
+
+.profile-email {
+  font-size: 13px;
+  color: #475569;
+  margin-bottom: 8px;
+}
+
+.profile-info {
+  font-size: 13px;
+  color: #323f4b;
+  margin: 4px 0;
+}
+
+.main {
+  flex: 1;
+  background-color: #ffffff;
+  border: 1px solid #d0d7de;
+  border-radius: 4px;
+  padding: 22px;
+}
+
+.main h2 {
+  margin-top: 0;
+  font-size: 20px;
+  color: #0b3c6d;
+}
+
+.main p {
+  font-size: 14px;
+  color: #323f4b;
+  line-height: 1.6;
+}
+
+.action-section {
+  margin-top: 28px;
+  text-align: center;
+}
+
+.complaint-btn {
+  background-color: #0b3c6d;
+  color: #ffffff;
+  border: none;
+  padding: 12px 32px;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.complaint-btn:hover {
+  background-color: #092f54;
+}
+.complaints-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 16px;
+}
+
+.complaints-table th,
+.complaints-table td {
+  border: 1px solid #d0d7de;
+  padding: 10px;
+  font-size: 14px;
+  text-align: left;
+}
+
+.complaints-table th {
+  background-color: #f1f5f9;
+  color: #0b3c6d;
+  font-weight: bold;
+}
+
+.status {
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.status.new {
+  background-color: #e3f2fd;
+  color: #0b3c6d;
+}
+
+.status.in_progress {
+  background-color: #fff3cd;
+  color: #856404;
+}
+
+.status.resolved {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.no-data {
+  margin-top: 20px;
+  font-size: 14px;
+  color: #555;
+}
+
+
+@media (max-width: 768px) {
+  .content-layout {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+  }
+
+  .nav-bar {
+    flex-wrap: wrap;
+  }
+}

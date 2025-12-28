@@ -1,0 +1,162 @@
+.gov-container {
+  max-width: 860px;
+  margin: 40px auto;
+  background-color: #ffffff;
+  border: 1px solid #cfd6df;
+  font-family: Arial, Helvetica, sans-serif;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+}
+
+.page-header {
+  background-color: #0b3c6d;
+  color: #ffffff;
+  padding: 18px 24px;
+  border-bottom: 3px solid #092f54;
+}
+
+.page-header h2 {
+  margin: 0;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.page-header p {
+  margin: 6px 0 0;
+  font-size: 14px;
+  opacity: 0.9;
+}
+
+.complaint-form {
+  padding: 24px;
+}
+
+.form-group {
+  margin-bottom: 18px;
+}
+
+.form-group label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 6px;
+  font-size: 14px;
+  color: #1f2933;
+}
+
+.form-group span {
+  color: #c62828;
+}
+
+input[type="text"],
+select,
+textarea {
+  width: 100%;
+  padding: 9px 12px;
+  font-size: 14px;
+  border: 1px solid #9aa5b1;
+  border-radius: 4px;
+  box-sizing: border-box;
+  background-color: #ffffff;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+input[type="text"]:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: #0b3c6d;
+  box-shadow: 0 0 0 2px rgba(11, 60, 109, 0.15);
+}
+
+textarea {
+  resize: vertical;
+  min-height: 90px;
+}
+
+input[type="file"] {
+  margin-top: 6px;
+  font-size: 14px;
+}
+
+small {
+  display: block;
+  margin-top: 4px;
+  font-size: 12px;
+  color: #616e7c;
+}
+
+.location-btn {
+  display: inline-block;
+  background-color: #eef2f6;
+  border: 1px solid #9aa5b1;
+  padding: 8px 14px;
+  font-size: 13px;
+  cursor: pointer;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+
+.location-btn:hover {
+  background-color: #e1e7ee;
+}
+
+.form-group.checkbox {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.form-group.checkbox input {
+  margin-top: 3px;
+}
+
+.form-group.checkbox label {
+  font-weight: normal;
+  font-size: 13px;
+  color: #323f4b;
+}
+
+.form-actions {
+  text-align: center;
+  margin-top: 28px;
+  padding-top: 18px;
+  border-top: 1px solid #e4e7eb;
+}
+
+.submit-btn {
+  background-color: #0b3c6d;
+  color: #ffffff;
+  border: none;
+  padding: 11px 34px;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.2s, transform 0.1s;
+}
+
+.submit-btn:hover {
+  background-color: #092f54;
+}
+
+.submit-btn:disabled {
+  background-color: #9aa5b1;
+  cursor: not-allowed;
+}
+
+.submit-btn:active {
+  transform: scale(0.98);
+}
+
+@media (max-width: 600px) {
+  .gov-container {
+    margin: 16px;
+  }
+
+  .page-header h2 {
+    font-size: 20px;
+  }
+
+  .complaint-form {
+    padding: 18px;
+  }
+}

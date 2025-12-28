@@ -1,0 +1,31 @@
+<h1>Total Complaints</h1>
+
+<table class="complaints-table">
+  <thead>
+  <tr>
+    <th>ID</th>
+    <th>Citizen</th>
+    <th>Problem</th>
+    <th>Address</th>
+    <th>Date</th>
+    <th>Status</th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <tr *ngFor="let complaint of allComplaints">
+    <td>{{ complaint.id }}</td>
+    <td>{{ complaint.name }}</td>
+    <td>{{ complaint.description }}</td>
+    <td>{{ complaint.address }}</td>
+    <td>{{ complaint.createdAt }}</td>
+    <td>{{complaint.status}}</td>
+  </tr>
+
+  <tr *ngIf="allComplaints.length === 0">
+    <td colspan="6" class="empty">
+      No complaints
+    </td>
+  </tr>
+  </tbody>
+</table>

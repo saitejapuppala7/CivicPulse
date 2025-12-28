@@ -1,0 +1,30 @@
+<header class="header">
+  <div class="left">
+    <h2>Welcome, {{ adminName }}</h2>
+  </div>
+
+  <div class="right">
+    <span class="email">{{ adminEmail }}</span>
+    <button class="change-btn" (click)="changePassword()">
+      Change Password
+    </button>
+  </div>
+</header>
+
+<div class="layout">
+
+  <aside class="sidebar">
+    <a routerLink="/admin-dashboard/dashboard" routerLinkActive="active">Dashboard</a>
+    <a routerLink="/admin-dashboard/pending" routerLinkActive="active">Pending Complaints</a>
+    <a routerLink="/admin-dashboard/all" routerLinkActive="active">All Complaints</a>
+    <a routerLink="/admin-dashboard/departments" routerLinkActive="active">Departments</a>
+    <a routerLink="/admin-dashboard/officers" routerLinkActive="active">Officers</a>
+    <a routerLink="/admin-dashboard/users" routerLinkActive="active">Users</a>
+    <a (click)="logout()">Logout</a>
+  </aside>
+
+  <main class="content">
+    <router-outlet></router-outlet>
+  </main>
+
+</div>

@@ -1,0 +1,110 @@
+<div class="container">
+
+
+  <header class="header">
+    <div class="header-left">
+      <h1>Welcome, {{ user.name }}</h1>
+    </div>
+
+  </header>
+
+  <nav class="nav-bar">
+    <div class="nav-inner">
+
+    <button class="nav-btn" (click)="setView('home')">Home</button>
+    <button class="nav-btn" (click)="setView('about')">About</button>
+    <button class="nav-btn" (click)="setView('track')">Track Complaints</button>
+    <button class="nav-btn" (click)="setView('contact')">Contact Us</button>
+      </div>
+  </nav>
+
+
+  <div class="content-layout">
+
+    <aside class="sidebar">
+      <div class="profile-card">
+        <div class="profile-avatar">
+          <img src="https://static.vecteezy.com/system/resources/thumbnails/020/765/399/small/default-profile-account-unknown-icon-black-silhouette-free-vector.jpg" alt="User Photo">
+        </div>
+        <h3 class="profile-name">{{ user.name }}</h3>
+        <p class="profile-email">{{ user.email }}</p>
+        <p class="profile-info">{{ user.address }}</p>
+        <p class="profile-info">{{ user.mobile }}</p>
+      </div>
+    </aside>
+
+
+    <main class="main">
+
+      <section *ngIf="currentView === 'home'">
+        <h2>Citizen Dashboard</h2>
+        <p>
+          Welcome to CivicPulse. Use this platform to report civic issues,
+          track complaints, and communicate with city authorities.
+        </p>
+
+        <div class="action-section">
+          <button class="complaint-btn" (click)="goToComplaint()">
+            Register Complaint
+          </button>
+        </div>
+      </section>
+
+      <section *ngIf="currentView === 'about'">
+        <h2>About CivicPulse</h2>
+        <p>
+          CivicPulse is a digital grievance redressal platform designed to
+          connect citizens with government departments efficiently and transparently.
+        </p>
+      </section>
+
+      <section *ngIf="currentView === 'track'">
+        <h2>Track Complaints</h2>
+
+        <table class="complaints-table" *ngIf="complaints.length > 0">
+          <thead>
+          <tr>
+            <th>Complaint ID</th>
+            <th>Department</th>
+            <th>Description</th>
+            <th>Status</th>
+            <th>Submitted Date</th>
+          </tr>
+          </thead>
+
+          <tbody>
+          <tr *ngFor="let c of complaints">
+            <td>{{ c.id }}</td>
+            <td>{{c.department}}</td>
+
+            <td>{{ c.description }}</td>
+            <td>
+          <span class="status" [ngClass]="c.status.toLowerCase()">
+            {{ c.status }}
+          </span>
+            </td>
+            <td>
+              {{ c.createdDate | date:'medium' }}
+            </td>
+          </tr>
+          </tbody>
+        </table>
+
+        <p *ngIf="complaints.length === 0" class="no-data">
+          No complaints found.
+        </p>
+      </section>
+
+
+      <section *ngIf="currentView === 'contact'">
+        <h2>Contact Us</h2>
+        <p>Email: supportcivicpulse.gov</p>
+        <p>Helpline: 1800-123-456</p>
+        <p>Office Hours: 9:00 AM – 6:00 PM</p>
+      </section>
+
+    </main>
+
+  </div>
+
+</div>

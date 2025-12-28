@@ -1,0 +1,91 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.header {
+  height: 60px;
+  background: #1f2937;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 25px;
+}
+
+.header .left h2 {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.header .right {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.header .email {
+  font-size: 14px;
+  color: #d1d5db;
+}
+
+.change-btn {
+  background: #2563eb;
+  color: #ffffff;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.change-btn:hover {
+  background: #1d4ed8;
+}
+.layout {
+  display: flex;
+  height: calc(100vh - 60px);
+}
+.sidebar {
+  width: 230px;
+  background: #111827;
+  display: flex;
+  flex-direction: column;
+  padding-top: 10px;
+}
+
+.sidebar a {
+  padding: 14px 20px;
+  text-decoration: none;
+  color: #e5e7eb;
+  font-size: 14px;
+  transition: background 0.2s ease;
+  cursor: pointer;
+}
+
+.sidebar a:hover {
+  background: #1f2937;
+}
+
+.sidebar a.active {
+  background: #374151;
+  font-weight: 600;
+}
+
+.content {
+  flex: 1;
+  padding: 30px;
+  background: #f3f4f6;
+  overflow-y: auto;
+}
+
+
+.content::-webkit-scrollbar {
+  width: 6px;
+}
+
+.content::-webkit-scrollbar-thumb {
+  background: #9ca3af;
+  border-radius: 10px;
+}

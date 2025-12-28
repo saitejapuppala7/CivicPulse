@@ -1,0 +1,70 @@
+<div class="gov-container">
+  <div class="page-header">
+    <h2>Register Grievance</h2>
+    <p>Please fill the form carefully. Fields marked with * are mandatory.</p>
+  </div>
+
+  <form class="complaint-form">
+
+    <div class="form-group">
+      <label>Category <span>*</span></label>
+      <select [(ngModel)]="complaint.category" name="category">
+        <option value="">-- Select Category --</option>
+        <option>Roads</option>
+        <option>Water Supply</option>
+        <option>Electricity</option>
+        <option>Sanitation</option>
+        <option>Street Lights</option>
+        <option>Others</option>
+      </select>
+    </div>
+
+
+    <div class="form-group">
+      <label>Description <span>*</span></label>
+      <textarea rows="4"
+                placeholder="Describe the issue in detail..."
+      [(ngModel)]="complaint.description" name="description"></textarea>
+    </div>
+
+
+    <div class="form-group">
+      <label>Upload Image</label>
+      <input type="file" accept=".jpg,.png" (change)="onFileSelected($event)">
+      <small>Only JPG or PNG files allowed</small>
+    </div>
+
+    <div class="form-group">
+      <label>Location <span>*</span></label>
+
+      <button type="button" class="location-btn" (click)="useCurrentLocation()">
+        Use Current Location
+      </button>
+
+      <input [(ngModel)]="complaint.area"
+             name="area" type="text" placeholder="Enter area / street name">
+      <input [(ngModel)]="complaint.city"
+             name="city "type="text" placeholder="City / Village">
+      <input [(ngModel)]="complaint.landmark"
+             name="landmark" type="text" placeholder="Landmark (optional)">
+    </div>
+
+
+    <div class="form-group checkbox">
+      <input [(ngModel)]="complaint.declaration"
+             name="declaration" type="checkbox">
+      <label>
+        I confirm that the information provided is true to the best of my knowledge.
+      </label>
+    </div>
+
+
+    <div class="form-actions">
+      <button type="submit" class="submit-btn" (click)="submitComplaint()">
+        Submit Complaint
+      </button>
+    </div>
+
+  </form>
+
+</div>

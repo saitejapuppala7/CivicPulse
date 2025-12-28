@@ -1,0 +1,38 @@
+h1 {
+  margin-bottom: 20px;
+  font-size: 22px;
+  color: #1f2937;
+}
+
+.complaints-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.complaints-table th,
+.complaints-table td {
+  padding: 12px;
+  text-align: left;
+  font-size: 14px;
+}
+
+.complaints-table th {
+  background: #e5e7eb;
+  font-weight: 600;
+}
+
+.complaints-table tr:nth-child(even) {
+  background: #f9fafb;
+}
+
+
+
+
+.empty {
+  text-align: center;
+  padding: 20px;
+  color: #6b7280;
+}
