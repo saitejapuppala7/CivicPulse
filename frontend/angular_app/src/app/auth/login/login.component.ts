@@ -56,7 +56,7 @@ export class LoginComponent {
         if (role === 'CITIZEN') {
           this.router.navigate(['/citizen-dashboard']);
         } else if (role === 'OFFICER') {
-          this.router.navigate(['/officer-dashboard']);
+          this.router.navigate(['/officers-dashboard']);
         } else if (role === 'ADMIN') {
           this.router.navigate(['/admin-dashboard']);
         } else {

@@ -1,54 +1,80 @@
 h1 {
-  margin-bottom: 20px;
-  font-size: 22px;
+  margin-bottom: 16px;
+  font-family: Arial, Helvetica, sans-serif;
   color: #1f2937;
 }
 
 .complaints-table {
   width: 100%;
   border-collapse: collapse;
-  background: white;
-  border-radius: 8px;
-  overflow: hidden;
+  background: #ffffff;
+  font-family: Arial, Helvetica, sans-serif;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+.complaints-table thead {
+  background: #1f2937;
+  color: #ffffff;
 }
 
 .complaints-table th,
 .complaints-table td {
   padding: 12px;
   text-align: left;
-  font-size: 14px;
+  border-bottom: 1px solid #e5e7eb;
 }
 
-.complaints-table th {
-  background: #e5e7eb;
-  font-weight: 600;
+.complaints-table tbody tr:hover {
+  background: #f1f5f9;
 }
 
-.complaints-table tr:nth-child(even) {
-  background: #f9fafb;
+.complaint-img {
+  object-fit: cover;
+  border-radius: 6px;
+  border: 1px solid #d1d5db;
 }
 
-.accept {
+select {
+  padding: 6px 8px;
+  border-radius: 6px;
+  border: 1px solid #cbd5e1;
+  outline: none;
+}
+
+button {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+button.accept {
   background: #16a34a;
-  color: white;
-  border: none;
-  padding: 6px 10px;
-  border-radius: 4px;
-  margin-right: 5px;
-  cursor: pointer;
+  color: #ffffff;
+  margin-right: 6px;
 }
 
-.reject {
+button.accept:disabled {
+  background: #9ca3af;
+  cursor: not-allowed;
+}
+
+button.reject {
   background: #dc2626;
-  color: white;
-  border: none;
-  padding: 6px 10px;
-  border-radius: 4px;
-  cursor: pointer;
+  color: #ffffff;
+}
+
+button.accept:hover:not(:disabled) {
+  background: #15803d;
+}
+
+button.reject:hover {
+  background: #b91c1c;
 }
 
 .empty {
   text-align: center;
-  padding: 20px;
+  font-weight: 500;
   color: #6b7280;
 }

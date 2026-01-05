@@ -15,8 +15,8 @@ export class HomeService {
     return this.http.get(`${this.baseUrl}/profile`);
   }
 
-  submitForm(complaint: any): Observable<any> {
-    return this.http.post(`${this.baseUrl}/register-complaint`, complaint);
+  submitForm(formData: FormData): Observable<any> {
+    return this.http.post(`${this.baseUrl}/register-complaint`, formData);
   }
 getComplaints():Observable<any[]>{
   return this.http.get<any[]>(`${this.baseUrl}/my`)

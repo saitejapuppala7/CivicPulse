@@ -17,8 +17,8 @@ export class AdminService {
   getAllComplaints():Observable<any[]>{
       return this.http.get<any[]>(`${this.baseUrl}/all`);
       }
-   acceptComplaint(id: number) {
-      return this.http.post(`${this.baseUrl}/${id}/accept`, {});
+   acceptComplaint(id: number,priority:string) {
+      return this.http.post(`${this.baseUrl}/${id}/accept`, {priority});
     }
 
     rejectComplaint(id: number) {

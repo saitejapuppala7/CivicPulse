@@ -57,24 +57,46 @@ navigator.geolocation.getCurrentPosition(
   }
 submitComplaint() {
 
-    if (
-      !this.complaint.category ||
-      !this.complaint.description ||
-      (!this.complaint.latitude && !this.complaint.area) ||
-      !this.complaint.declaration
-    ) {
-      alert('Please fill all mandatory fields');
-      return;
-    }
-   this.homeService.submitForm(this.complaint).subscribe({
-     next:(response:any)=>{
-       alert('Thank You! Your Complaint Register Successfully');
+  if (
+    !this.complaint.category ||
+    !this.complaint.description ||
+    (!this.complaint.latitude && !this.complaint.area) ||
+    !this.complaint.declaration
+  ) {
+    alert('Please fill all mandatory fields');
+    return;
+  }
 
-       }
-     });
+  const formData = new FormData();
 
-     this.resetForm();
-      }
+  formData.append('category', this.complaint.category);
+  formData.append('description', this.complaint.description);
+  formData.append('area', this.complaint.area);
+  formData.append('city', this.complaint.city);
+  formData.append('landmark', this.complaint.landmark);
+  formData.append('declaration', String(this.complaint.declaration));
+
+  if (this.complaint.latitude !== null)
+    formData.append('latitude', this.complaint.latitude.toString());
+
+  if (this.complaint.longitude !== null)
+    formData.append('longitude', this.complaint.longitude.toString());
+
+
+  if (this.complaint.image) {
+    formData.append('image', this.complaint.image);
+  }
+
+  this.homeService.submitForm(formData).subscribe({
+    next: () => {
+      alert('Thank You! Your Complaint Registered Successfully');
+
+    },
+    error: err => console.error(err)
+  });
+this.resetForm();
+}
+
 resetForm() {
     this.complaint = {
       category: '',

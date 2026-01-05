@@ -1,0 +1,40 @@
+<header class="header">
+  <div class="left">
+    <h2>Welcome, {{ department }} Department</h2>
+  </div>
+
+  <div class="right">
+    <span class="email">{{ departmentEmail }}</span>
+    <button class="change-btn"  (click)="changePassword()">
+      Change Password
+    </button>
+    <div class="profile"  #profileRef (click)="toggleProfile($event)">
+      <span>Officer</span>
+      <img src="" alt="profile">
+
+      <div class="profile-dropdown" *ngIf="showProfile">
+        <p><strong>Name:</strong> Officer Ravi</p>
+        <p><strong>Email:</strong> {{ departmentEmail }}</p>
+        <p><strong>Department:</strong> {{ department }}</p>
+      </div>
+    </div>
+
+  </div>
+</header>
+
+<div class="layout">
+
+  <aside class="sidebar">
+    <a routerLink="/officers-dashboard/dashboard" routerLinkActive="active">Dashboard</a>
+    <a routerLink="/officers-dashboard/assigned" routerLinkActive="active">Assigned Complaints</a>
+    <a routerLink="/officers-dashboard/resolved" routerLinkActive="active">Resolved Complaints</a>
+    <a routerLink="/officers-dashboard/report" routerLinkActive="active">Reports</a>
+
+    <a (click)="logout()">Logout</a>
+  </aside>
+
+  <main class="content">
+    <router-outlet></router-outlet>
+  </main>
+
+</div>

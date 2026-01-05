@@ -1,0 +1,35 @@
+<h2>Complaint Details</h2>
+
+<p><b>ID:</b> {{ complaint.id }}</p>
+<p><b>Category:</b> {{ complaint.address }}</p>
+<p><b>Description:</b> {{ complaint.description }}</p>
+<p><b>Latitude:</b> {{ complaint.latitude }}</p>
+<p><b>Longitude:</b> {{ complaint.longitude }}</p>
+<p><b>Priority:</b> {{ complaint.prioritySet }}</p>
+<p><b>Status:</b> {{ complaint.status }}</p>
+
+<h3>Complaint Image</h3>
+
+<img *ngIf="complaint.image"
+     [src]="'http://localhost:8080/complaint-image/' + complaint.image"
+     width="200"
+     style="object-fit: cover; border-radius: 8px;"
+     alt="Complaint Image">
+
+<span *ngIf="!complaint.image">No Image</span>
+
+<hr>
+
+<h3>Inspection & Resolution</h3>
+
+<textarea
+  [(ngModel)]="resolvedDescription"
+  placeholder="Enter inspection details">
+</textarea>
+
+<input type="file" (change)="onFileSelected($event)" />
+
+<button (click)="markResolved()"
+        [disabled]="complaint.status === 'RESOLVED'">
+  Mark as Resolved
+</button>

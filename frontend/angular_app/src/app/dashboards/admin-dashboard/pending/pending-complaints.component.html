@@ -8,29 +8,59 @@
     <th>Problem</th>
     <th>Address</th>
     <th>Date</th>
+    <th>Image</th>
+    <th>Priority</th>
     <th>Action</th>
   </tr>
   </thead>
 
   <tbody>
-  <tr *ngFor="let complaint of pendingComplaints">
-    <td>{{ complaint.id }}</td>
-    <td>{{ complaint.name }}</td>
-    <td>{{ complaint.description }}</td>
-    <td>{{ complaint.address }}</td>
-    <td>{{ complaint.createdAt }}</td>
+  <tr *ngFor="let c of pendingComplaints">
+    <td>{{ c.id }}</td>
+    <td>{{ c.name }}</td>
+    <td>{{ c.description }}</td>
+    <td>{{ c.address }}</td>
+    <td>{{ c.createdAt | date:'short' }}</td>
+
     <td>
-      <button class="accept" (click)="acceptComplaint(complaint.id)">
+      <img
+        *ngIf="c.image"
+        [src]="'http://localhost:8080/complaint-image/' + c.image"
+        width="80"
+        height="80"
+        class="complaint-img"
+        alt="Complaint Image">
+
+      <span *ngIf="!c.image">No Image</span>
+    </td>
+
+    <td>
+      <select [(ngModel)]="c.priority">
+        <option value="">Select</option>
+        <option value="LOW">Low</option>
+        <option value="MEDIUM">Medium</option>
+        <option value="HIGH">High</option>
+      </select>
+    </td>
+
+    <td>
+      <button
+        class="accept"
+        (click)="acceptComplaint(c)"
+        [disabled]="!c.priority">
         Accept
       </button>
-      <button class="reject" (click)="rejectComplaint(complaint.id)">
+
+      <button
+        class="reject"
+        (click)="rejectComplaint(c.id)">
         Reject
       </button>
     </td>
   </tr>
 
   <tr *ngIf="pendingComplaints.length === 0">
-    <td colspan="6" class="empty">
+    <td colspan="8" class="empty">
       No pending complaints
     </td>
   </tr>

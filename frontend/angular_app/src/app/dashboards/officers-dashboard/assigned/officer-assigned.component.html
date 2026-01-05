@@ -1,0 +1,47 @@
+<div class="container">
+  <div class="filter-bar">
+    <button class="active">All</button>
+    <button>Low Priority</button>
+    <button>Medium Priority</button>
+    <button>High Priority</button>
+  </div>
+  <div class="search-bar">
+    <input type="text" placeholder="Search complaints..." />
+  </div>
+
+  <section class="table-section">
+    <h2>Assigned Complaints</h2>
+    <table>
+      <thead>
+      <tr>
+        <th>ID</th>
+        <th>Description</th>
+        <th>Area</th>
+        <th>Priority</th>
+        <th>Status</th>
+        <th>Action</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let complaint of allComplaints">
+        <td>{{ complaint.id }}</td>
+        <td>{{ complaint.description }}</td>
+        <td>{{ complaint.address }}</td>
+        <td>{{ complaint.prioritySet }}</td>
+
+        <td class="status {{ complaint.status }}">
+          {{ complaint.status }}
+        </td>
+
+        <td>
+          <button (click)="viewComplaint(complaint.id)">
+            View
+          </button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </section>
+
+</div>
+

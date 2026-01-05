@@ -8,6 +8,8 @@
     <th>Problem</th>
     <th>Address</th>
     <th>Date</th>
+    <th>Image</th>
+    <th>Priority</th>
     <th>Status</th>
   </tr>
   </thead>
@@ -18,12 +20,34 @@
     <td>{{ complaint.name }}</td>
     <td>{{ complaint.description }}</td>
     <td>{{ complaint.address }}</td>
-    <td>{{ complaint.createdAt }}</td>
-    <td>{{complaint.status}}</td>
+    <td>{{ complaint.createdAt | date:'short' }}</td>
+
+    <td>
+      <img *ngIf="complaint.image"
+           [src]="'http://localhost:8080/complaint-image/' + complaint.image"
+           width="80"
+           height="80"
+           style="object-fit: cover; border-radius: 6px;"
+           alt="Complaint Image">
+
+      <span *ngIf="!complaint.image">No Image</span>
+    </td>
+
+
+    <td>
+        <span *ngIf="complaint.priority; else noPriority">
+          {{ complaint.priority }}
+        </span>
+      <ng-template #noPriority>
+        Not Set
+      </ng-template>
+    </td>
+
+    <td>{{ complaint.status }}</td>
   </tr>
 
   <tr *ngIf="allComplaints.length === 0">
-    <td colspan="6" class="empty">
+    <td colspan="8" class="empty">
       No complaints
     </td>
   </tr>
