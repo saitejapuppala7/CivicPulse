@@ -56,5 +56,8 @@ export class HomeComponent implements OnInit {
        }
      );
    }
+ viewComplaint(id: number): void {
+   this.router.navigate(['/citizen-dashboard/complaint-in-detail', id]);
+   }
 
 }

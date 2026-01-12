@@ -39,5 +39,10 @@ export class OfficerService {
     return new HttpHeaders({
       Authorization: `Bearer ${token}`
     });
+
+  }
+
+getResolvedComplaints(): Observable<any[]> {
+    return this.http.get<any[]>(`${this.baseUrl}/complaint/resolved`);
   }
 }

@@ -1,0 +1,34 @@
+<div class="container">
+  <div class="search-bar">
+    <input type="text" placeholder="Search complaints..." />
+  </div>
+
+  <section class="table-section">
+    <h2>Assigned Complaints</h2>
+    <table>
+      <thead>
+      <tr>
+        <th>ID</th>
+        <th>Area</th>
+        <th>Description</th>
+        <th>Status</th>
+        <th>Rating</th>
+        <th>Feedback</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let complaint of complaints">
+        <td>{{ complaint.id }}</td>
+        <td>{{ complaint.address }}</td>
+        <td>{{ complaint.description }}</td>
+        <td class="status {{ complaint.status }}">
+          {{ complaint.status }}
+        </td>
+        <td>{{ complaint.rating }}</td>
+        <td>{{ complaint.feedback }}</td>
+      </tr>
+      </tbody>
+    </table>
+  </section>
+
+</div>

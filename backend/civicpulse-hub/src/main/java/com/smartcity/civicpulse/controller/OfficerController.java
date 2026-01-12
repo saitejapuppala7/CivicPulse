@@ -1,9 +1,6 @@
 package com.smartcity.civicpulse.controller;
 
-import com.smartcity.civicpulse.dto.AllComplaints;
-import com.smartcity.civicpulse.dto.ComplaintByIdDto;
-import com.smartcity.civicpulse.dto.MyComplaints;
-import com.smartcity.civicpulse.dto.ResolvedComplaintDto;
+import com.smartcity.civicpulse.dto.*;
 import com.smartcity.civicpulse.services.OfficerService;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -41,4 +38,12 @@ public class OfficerController {
         System.out.println("working");
         return officerService.resolvedComplaint(id,resolvedComplaintDto,token);
     }
+    @GetMapping("/complaint/resolved")
+    public List<OfficerResolved> getResolvedComplaints(HttpServletRequest request)
+    {
+        String token=request.getHeader("Authorization").substring(7);
+        return officerService.getResolvedComplaints(token);
+
+    }
+
 }

@@ -13,7 +13,12 @@ public class MyComplaints {
     private String department;
     private String image;
     private String resolvedImage;
-     public MyComplaints(Long id, String department,String description,ComplaintStatus status,LocalDateTime dateTime,String image,String resolvedImage)
+    private String resolvedDescription;
+    private Long rating;
+    private String feedback;
+     public MyComplaints(Long id, String department,String description,ComplaintStatus status,
+                         LocalDateTime dateTime,String image,String resolvedImage,
+                         String resolvedDescription,String feedback,Long rating)
      {
          this.id=id;
          this.department=department;
@@ -22,7 +27,34 @@ public class MyComplaints {
          this.description=description;
          this.image=image;
          this.resolvedImage=resolvedImage;
+         this.resolvedDescription=resolvedDescription;
+         this.rating=rating;
+         this.feedback=feedback;
      }
+
+    public void setFeedback(String feedback) {
+        this.feedback = feedback;
+    }
+
+    public String getFeedback() {
+        return feedback;
+    }
+
+    public Long getRating() {
+        return rating;
+    }
+
+    public void setRating(Long rating) {
+        this.rating = rating;
+    }
+
+    public String getResolvedDescription() {
+        return resolvedDescription;
+    }
+
+    public void setResolvedDescription(String resolvedDescription) {
+        this.resolvedDescription = resolvedDescription;
+    }
 
     public void setResolvedImage(String resolvedImage) {
         this.resolvedImage = resolvedImage;

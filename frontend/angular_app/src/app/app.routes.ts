@@ -12,13 +12,17 @@ import {OfficerDashboardComponent} from './dashboards/officers-dashboard/layout/
 import{  DashboardOverviewComponent} from './dashboards/officers-dashboard/dashboard/officer-dashboard.component';
 import { ComplaintDetailsComponent} from './dashboards/officers-dashboard/complaint/officer-complaint.component';
 import {OfficerAssignedComponent} from './dashboards/officers-dashboard/assigned/officer-assigned.component';
+import {OfficerResolvedComponent} from './dashboards/officers-dashboard/resolved/officer-resolved.component';
+import { ComplaintInDetailComponent } from './dashboards/citizen-dashboard/complaint-in-detail/complaint-details.component';
 export const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
-  {path:'citizen-dashboard',component:HomeComponent,canActivate: [AuthGuard] },
+  {path:'citizen-dashboard',component:HomeComponent},
+  {path: 'citizen-dashboard/complaint-in-detail/:id',
+     component: ComplaintInDetailComponent},
 
-  { path : 'report-complaint' , component : RegisterComplaint,canActivate: [AuthGuard] },
+  { path : 'report-complaint' , component : RegisterComplaint},
  { path: 'admin-dashboard',component: AdminLayoutComponent,children: [
                                                          { path: 'dashboard', component: AdminDashboardComponent},
                                                            {path: '', redirectTo: 'dashboard', pathMatch: 'full'},
@@ -30,7 +34,9 @@ export const routes: Routes = [
    { path: 'dashboard', component:  DashboardOverviewComponent},
    {path: '', redirectTo: 'dashboard', pathMatch: 'full'},
    {path: 'assigned', component:OfficerAssignedComponent },
-   {path: 'complaint/:id' ,component:ComplaintDetailsComponent}
+   {path: 'complaint/:id' ,component:ComplaintDetailsComponent},
+   {path: 'resolved', component:OfficerResolvedComponent }
+
    ]}
 ];
 

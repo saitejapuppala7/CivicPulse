@@ -67,9 +67,7 @@
             <th>Complaint ID</th>
             <th>Department</th>
             <th>Description</th>
-            <th>Image</th>
             <th>Status</th>
-            <th>ResolvedProof</th>
             <th>Submitted Date</th>
           </tr>
           </thead>
@@ -81,32 +79,17 @@
 
             <td>{{ c.description}}</td>
             <td>
-              <img *ngIf="c.image"
-                   [src]="'http://localhost:8080/complaint-image/' + c.image"
-                   width="80"
-                   height="80"
-                   style="object-fit: cover; border-radius: 6px;"
-                   alt="Complaint Image">
-
-              <span *ngIf="!c.image">No Image</span>
-            </td>
-            <td>
           <span class="status" [ngClass]="c.status.toLowerCase()">
             {{ c.status }}
           </span>
             </td>
             <td>
-              <img *ngIf="c.resolvedImage"
-                   [src]="'http://localhost:8080/complaint-image/' + c.resolvedImage"
-                   width="80"
-                   height="80"
-                   style="object-fit: cover; border-radius: 6px;"
-                   alt="Complaint Image">
-
-              <span *ngIf="!c.image">No Image</span>
+              {{ c.createdDate | date:'medium' }}
             </td>
             <td>
-              {{ c.createdDate | date:'medium' }}
+              <button (click)="viewComplaint(c.id)">
+                View
+              </button>
             </td>
           </tr>
           </tbody>

@@ -1,9 +1,7 @@
 package com.smartcity.civicpulse.services;
 
-import com.smartcity.civicpulse.dto.CitizenProfileResponse;
-import com.smartcity.civicpulse.dto.ComplaintDto;
+import com.smartcity.civicpulse.dto.*;
 
-import com.smartcity.civicpulse.dto.MyComplaints;
 import com.smartcity.civicpulse.entity.*;
 import com.smartcity.civicpulse.enums.ComplaintStatus;
 import com.smartcity.civicpulse.repository.*;
@@ -125,11 +123,41 @@ public class CitizenService {
                     c.getDescription(),
                     c.getStatus(),
                     c.getCreatedDate(),
-                    c.getImageUrl(),c.getResolvedImageUrl()
+                    c.getImageUrl(),
+                    c.getResolvedImageUrl(),
+                    c.getResolvedDescription(),
+                    c.getFeedback(),
+                    c.getRating()
             );
             result.add(dto);
         }
         return result;
+    }
+    public MyComplaints getComplaintsById(Long id) {
+        Complaint c = complaintRepository.findById(id).orElseThrow();
+        MyComplaints dto = new MyComplaints(
+                c.getComplaintId(),
+                c.getDepartment().getName(),
+                c.getDescription(),
+                c.getStatus(),
+                c.getCreatedDate(),
+
+                c.getImageUrl(),
+                c.getResolvedImageUrl(),
+                c.getResolvedDescription(),
+                c.getFeedback(),
+                c.getRating()
+        );
+        return dto;
+
+    }
+    public String postFeedback (Long id, Feedback feedback)
+    {
+        Complaint c = complaintRepository.findById(id).orElseThrow();
+        c.setFeedback(feedback.getFeedback());
+        c.setRating(feedback.getRating());
+        complaintRepository.save(c);
+        return "Thank You For Your Feedback";
     }
 }
 

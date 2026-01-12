@@ -1,9 +1,6 @@
 package com.smartcity.civicpulse.services;
 
-import com.smartcity.civicpulse.dto.AllComplaints;
-import com.smartcity.civicpulse.dto.ComplaintByIdDto;
-import com.smartcity.civicpulse.dto.ComplaintDto;
-import com.smartcity.civicpulse.dto.ResolvedComplaintDto;
+import com.smartcity.civicpulse.dto.*;
 import com.smartcity.civicpulse.entity.Complaint;
 import com.smartcity.civicpulse.entity.Department;
 import com.smartcity.civicpulse.entity.Officer;
@@ -58,7 +55,7 @@ public class OfficerService {
         ComplaintByIdDto complaintByIdDto=new ComplaintByIdDto(complaint.getComplaintId(),complaint.getCity(),
                 complaint.getDescription(),complaint.getLatitude(),
                 complaint.getLongitude(),complaint.getPrioritySet(),
-                complaint.getStatus(),complaint.getImageUrl());
+                complaint.getStatus(),complaint.getImageUrl(), complaint.getRating(), complaint.getFeedback());
         return complaintByIdDto;
     }
     @Transactional
@@ -106,6 +103,24 @@ public class OfficerService {
         complaintRepository.save(complaint);
 
         return "Complaint Resolved";
+    }
+    public List<OfficerResolved> getResolvedComplaints(String token)
+    {
+        String email=jwtService.extractEmail(token);
+        Officer officer=officerRepository.findByEmail(email);
+        Department department=officer.getDepartment();
+        List<Complaint> complaints=complaintRepository.findByDepartmentAndStatus(department, ComplaintStatus.RESOLVED);
+        List<OfficerResolved> officerResolveds=new ArrayList<>();
+        for(Complaint c: complaints)
+        {
+            OfficerResolved or= new OfficerResolved(c.getComplaintId(),c.getArea(),
+                    c.getDescription(),c.getStatus(),c.getRating(),c.getFeedback());
+            officerResolveds.add(or);
+
+        }
+        return officerResolveds;
+
+
     }
 
 

@@ -2,6 +2,7 @@ package com.smartcity.civicpulse.controller;
 
 import com.smartcity.civicpulse.dto.CitizenProfileResponse;
 import com.smartcity.civicpulse.dto.ComplaintDto;
+import com.smartcity.civicpulse.dto.Feedback;
 import com.smartcity.civicpulse.dto.MyComplaints;
 import com.smartcity.civicpulse.entity.Complaint;
 import com.smartcity.civicpulse.services.CitizenService;
@@ -43,6 +44,17 @@ public class CitizenController {
        String token=request.getHeader("Authorization").substring(7);
        return citizenService.getComplaints(token);
    }
+   @GetMapping("/complaint/{id}")
+    public MyComplaints getComplaintsById(@PathVariable Long id)
+   {
+       return citizenService.getComplaintsById(id);
+   }
+   @PostMapping("/complaint/{id}/feedback")
+    public String postFeedBack(@PathVariable Long id,@RequestBody Feedback feedback)
+   {
+       return citizenService.postFeedback(id,feedback);
+   }
+
 
 
 

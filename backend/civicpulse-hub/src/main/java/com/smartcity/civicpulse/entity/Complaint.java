@@ -46,6 +46,9 @@ public class Complaint {
     private String landmark;
     private String imageUrl;
     private String resolvedImageUrl;
+    private Long rating;
+    private String feedback;
+
 
     @CreationTimestamp
     @Column(updatable = false)
@@ -55,6 +58,22 @@ public class Complaint {
 
 
     public Complaint() {
+    }
+
+    public void setRating(Long rating) {
+        this.rating = rating;
+    }
+
+    public Long getRating() {
+        return rating;
+    }
+
+    public String getFeedback() {
+        return feedback;
+    }
+
+    public void setFeedback(String feedback) {
+        this.feedback = feedback;
     }
 
     public String getResolvedImageUrl() {

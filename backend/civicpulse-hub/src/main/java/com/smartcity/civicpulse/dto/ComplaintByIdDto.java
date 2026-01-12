@@ -13,8 +13,10 @@ public class ComplaintByIdDto {
         private PrioritySet prioritySet;
         private ComplaintStatus status;
         private String image;
+        private Long rating;
+        private String feedback;
 
-        public ComplaintByIdDto() {}
+
 
         public ComplaintByIdDto(
                 Long id,
@@ -24,7 +26,9 @@ public class ComplaintByIdDto {
                 Double longitude,
                 PrioritySet prioritySet,
                 ComplaintStatus status,
-                String image
+                String image,
+                Long rating,
+                String feedback
         ) {
             this.id = id;
             this.address = address;
@@ -34,9 +38,28 @@ public class ComplaintByIdDto {
             this.prioritySet = prioritySet;
             this.status = status;
             this.image = image;
+            this.rating=rating;
+            this.feedback=feedback;
         }
 
-        public Long getId() {
+    public String getFeedback() {
+        return feedback;
+    }
+
+    public void setFeedback(String feedback) {
+        this.feedback = feedback;
+    }
+
+    public void setRating(Long rating) {
+        this.rating = rating;
+    }
+
+    public Long getRating() {
+        return rating;
+    }
+
+
+    public Long getId() {
             return id;
         }
 
