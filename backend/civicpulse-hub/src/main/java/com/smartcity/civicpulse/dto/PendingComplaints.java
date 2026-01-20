@@ -15,7 +15,9 @@ public class PendingComplaints {
     private ComplaintStatus status;
     private PrioritySet prioritySet;
     private String image;
-    public PendingComplaints( Long id, String name, String description, String address,LocalDateTime createdAt,String image)
+    private String zone;
+    public PendingComplaints( Long id, String name, String description, String address,
+                              LocalDateTime createdAt,String image,String zone)
     {
         this.id=id;
         this.name=name;
@@ -23,7 +25,16 @@ public class PendingComplaints {
         this.address=address;
         this.createdAt=createdAt;
         this.image=image;
+        this.zone=zone;
 
+    }
+
+    public void setZone(String zone) {
+        this.zone = zone;
+    }
+
+    public String getZone() {
+        return zone;
     }
 
     public void setImage(String image) {

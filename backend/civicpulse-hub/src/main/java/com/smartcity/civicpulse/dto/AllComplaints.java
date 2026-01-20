@@ -14,10 +14,11 @@ public class AllComplaints {
     private LocalDateTime createdAt;
     private ComplaintStatus status;
     private PrioritySet prioritySet;
+    private String zone;
 
     public AllComplaints( Long id, String name, String description,
                           String address,LocalDateTime createdAt,
-                          ComplaintStatus status,String image,PrioritySet prioritySet)
+                          ComplaintStatus status,String image,PrioritySet prioritySet,String zone)
     {
         this.id=id;
         this.name=name;
@@ -27,8 +28,17 @@ public class AllComplaints {
         this.status=status;
         this.image=image;
         this.prioritySet=prioritySet;
+        this.zone=zone;
 
 
+    }
+
+    public String getZone() {
+        return zone;
+    }
+
+    public void setZone(String zone) {
+        this.zone = zone;
     }
 
     public PrioritySet getPrioritySet() {

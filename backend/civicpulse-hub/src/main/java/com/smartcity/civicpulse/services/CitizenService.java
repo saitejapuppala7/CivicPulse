@@ -83,6 +83,7 @@ public class CitizenService {
         complaint.setCreatedDate(LocalDateTime.now());
         complaint.setStatus(ComplaintStatus.PENDING);
         complaint.setImageUrl(imagePath);
+        complaint.setZone(complaintDto.getZone());
         complaintRepository.save(complaint);
 
         return "Complaint Submitted Successfully";

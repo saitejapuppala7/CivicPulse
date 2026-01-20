@@ -1,25 +1,60 @@
-<h1>Dashboard Overview</h1>
+<div class="dashboard-page">
 
-<div class="cards">
+  <!-- Page Title -->
+  <h1 class="page-title">Dashboard Overview</h1>
 
-  <div class="card">
-    <h3>Total Complaints</h3>
-    <p>{{ totalComplaints }}</p>
-  </div>
+  <!-- Statistics Section -->
+  <section class="stats-section">
+    <div class="stat-card">
+      <h3>Total Complaints</h3>
+      <p>{{ totalComplaints }}</p>
+    </div>
 
-  <div class="card">
-    <h3>Pending Complaints</h3>
-    <p>{{ pendingComplaints }}</p>
-  </div>
+    <div class="stat-card">
+      <h3>Pending Complaints</h3>
+      <p>{{ pendingComplaints }}</p>
+    </div>
 
-  <div class="card">
-    <h3>Accepted</h3>
-    <p>{{ acceptedComplaints }}</p>
-  </div>
+    <div class="stat-card">
+      <h3>Accepted</h3>
+      <p>{{ acceptedComplaints }}</p>
+    </div>
 
-  <div class="card">
-    <h3>Rejected</h3>
-    <p>{{ rejectedComplaints }}</p>
-  </div>
+    <div class="stat-card">
+      <h3>Rejected</h3>
+      <p>{{ rejectedComplaints }}</p>
+    </div>
+  </section>
+
+  <!-- Analytics Section -->
+  <section class="analytics-section">
+
+    <h2 class="section-title">Admin Analytics Dashboard</h2>
+
+    <div class="charts-grid">
+
+      <!-- Category wise (Admin only) -->
+      <div class="chart-card">
+        <app-category-chart></app-category-chart>
+      </div>
+
+      <!-- Zone wise -->
+      <div class="chart-card">
+        <app-zone-chart></app-zone-chart>
+      </div>
+
+      <!-- SLA -->
+      <div class="chart-card">
+        <app-sla-chart></app-sla-chart>
+      </div>
+
+      <!-- Heat Zone -->
+      <div class="chart-card full-width">
+        <app-heatmap></app-heatmap>
+      </div>
+
+    </div>
+  </section>
 
 </div>
+

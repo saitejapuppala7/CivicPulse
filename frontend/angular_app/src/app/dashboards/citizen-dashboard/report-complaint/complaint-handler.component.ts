@@ -24,7 +24,8 @@ export class RegisterComplaint {
         landmark: '',
         latitude: null as number | null,
         longitude: null as number | null,
-        declaration: false
+        declaration: false,
+        zone:''
     };
   constructor (private homeService:HomeService ,private router:Router){}
 onFileSelected(event: any) {
@@ -59,6 +60,8 @@ submitComplaint() {
 
   if (
     !this.complaint.category ||
+    !this.complaint.zone ||
+
     !this.complaint.description ||
     (!this.complaint.latitude && !this.complaint.area) ||
     !this.complaint.declaration
@@ -68,7 +71,7 @@ submitComplaint() {
   }
 
   const formData = new FormData();
-
+formData.append('zone', this.complaint.zone);
   formData.append('category', this.complaint.category);
   formData.append('description', this.complaint.description);
   formData.append('area', this.complaint.area);
@@ -108,7 +111,8 @@ resetForm() {
       landmark: '',
       latitude: null,
       longitude: null,
-      declaration: false
+      declaration: false,
+      zone:''
     };
   }
 }

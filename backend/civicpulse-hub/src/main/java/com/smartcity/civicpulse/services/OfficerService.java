@@ -15,6 +15,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
 import java.io.IOException;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
@@ -43,7 +44,7 @@ public class OfficerService {
         for(Complaint c:complaints)
         {
             AllComplaints all=new AllComplaints(c.getComplaintId(),c.getCitizen().getName(),
-                    c.getDescription(),c.getArea(),c.getCreatedDate(),c.getStatus(), c.getImageUrl(),c.getPrioritySet());
+                    c.getDescription(),c.getArea(),c.getCreatedDate(),c.getStatus(), c.getImageUrl(),c.getPrioritySet(),c.getZone());
            allComplaints.add(all);
         }
         return allComplaints;
@@ -99,6 +100,7 @@ public class OfficerService {
         }
         complaint.setResolvedDescription(resolvedComplaintDto.getResolvedDescription());
         complaint.setStatus(ComplaintStatus.RESOLVED);
+        complaint.setResolvedAt(LocalDateTime.now());
         complaint.setResolvedImageUrl(imagePath);
         complaintRepository.save(complaint);
 

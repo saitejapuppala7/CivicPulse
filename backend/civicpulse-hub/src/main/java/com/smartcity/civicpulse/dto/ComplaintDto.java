@@ -13,6 +13,15 @@ public class ComplaintDto {
     private double longitude;
     private String status;
     private MultipartFile image;
+    private String zone;
+
+    public void setZone(String zone) {
+        this.zone = zone;
+    }
+
+    public String getZone() {
+        return zone;
+    }
 
     public MultipartFile getImage() {
         return image;

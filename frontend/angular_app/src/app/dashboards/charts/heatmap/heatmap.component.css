@@ -1,0 +1,66 @@
+.heatmap-container {
+  width: 100%;
+}
+
+.heatmap-title {
+  font-size: 18px;
+  margin-bottom: 14px;
+  color: #111827;
+}
+
+/* Table base */
+.heatmap-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+  background: #ffffff;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.heatmap-table th,
+.heatmap-table td {
+  padding: 12px 10px;
+  text-align: center;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.heatmap-table th {
+  background-color: #f3f4f6;
+  color: #374151;
+  font-weight: 600;
+}
+
+/* Risk colors */
+.high-risk {
+  background-color: #fee2e2;   /* light red */
+  color: #991b1b;
+  font-weight: 600;
+}
+
+.medium-risk {
+  background-color: #fef3c7;  /* light yellow */
+  color: #92400e;
+  font-weight: 600;
+}
+
+.low-risk {
+  background-color: #dcfce7;  /* light green */
+  color: #065f46;
+  font-weight: 600;
+}
+
+/* Hover effect */
+.heatmap-table tbody tr:hover {
+  filter: brightness(0.95);
+  cursor: pointer;
+}
+
+/* Mobile responsive */
+@media (max-width: 600px) {
+  .heatmap-table th,
+  .heatmap-table td {
+    font-size: 12px;
+    padding: 8px;
+  }
+}

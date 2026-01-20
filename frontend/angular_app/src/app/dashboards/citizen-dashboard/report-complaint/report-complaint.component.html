@@ -20,6 +20,7 @@
     </div>
 
 
+
     <div class="form-group">
       <label>Description <span>*</span></label>
       <textarea rows="4"
@@ -32,6 +33,17 @@
       <label>Upload Image</label>
       <input type="file" accept=".jpg,.png" (change)="onFileSelected($event)">
       <small>Only JPG or PNG files allowed</small>
+    </div>
+    <div class="form-group">
+      <label>Zone <span>*</span></label>
+      <select [(ngModel)]="complaint.zone" name="zone">
+        <option value="">-- Select Zone --</option>
+        <option>North Zone</option>
+        <option>West Zone</option>
+        <option>East Zone</option>
+        <option>South Zone</option>
+        <option>Central Zone</option>
+      </select>
     </div>
 
     <div class="form-group">

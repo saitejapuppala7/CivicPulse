@@ -32,7 +32,7 @@ public class AdminService {
         for(Complaint c : complaints)
         {
             PendingComplaints pc=new PendingComplaints(
-                    c.getComplaintId(),c.getCitizen().getName(),c.getDescription(),c.getArea(),c.getCreatedDate(),c.getImageUrl());
+                    c.getComplaintId(),c.getCitizen().getName(),c.getDescription(),c.getArea(),c.getCreatedDate(),c.getImageUrl(),c.getZone());
             pendingComplaints.add(pc);
 
 
@@ -59,7 +59,7 @@ public class AdminService {
         {
             AllComplaints ac=new AllComplaints(
                     c.getComplaintId(),c.getCitizen().getName(),
-                    c.getDescription(),c.getArea(),c.getCreatedDate(),c.getStatus(), c.getImageUrl(),c.getPrioritySet());
+                    c.getDescription(),c.getArea(),c.getCreatedDate(),c.getStatus(), c.getImageUrl(),c.getPrioritySet(),c.getZone());
             allComplaints.add(ac);
 
 

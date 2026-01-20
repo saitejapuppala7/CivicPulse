@@ -11,17 +11,30 @@ export class AdminService {
 
   constructor(private http: HttpClient) {}
 
-  getPendingComplaints():Observable<any[]>{
-    return this.http.get<any[]>(`${this.baseUrl}/pending`);
-    }
-  getAllComplaints():Observable<any[]>{
-      return this.http.get<any[]>(`${this.baseUrl}/all`);
-      }
-   acceptComplaint(id: number,priority:string) {
-      return this.http.post(`${this.baseUrl}/${id}/accept`, {priority});
-    }
 
-    rejectComplaint(id: number) {
-      return this.http.post(`${this.baseUrl}/${id}/reject`, {});
-    }
+  getAllComplaints(): Observable<any[]> {
+    return this.http.get<any[]>(
+      `${this.baseUrl}/all`
+    );
   }
+
+  getPendingComplaints(): Observable<any[]> {
+    return this.http.get<any[]>(
+      `${this.baseUrl}/pending`
+    );
+  }
+
+  acceptComplaint(id: number, priority: string): Observable<any> {
+    return this.http.post(
+      `${this.baseUrl}/${id}/accept`,
+      { priority }
+    );
+  }
+
+  rejectComplaint(id: number): Observable<any> {
+    return this.http.post(
+      `${this.baseUrl}/${id}/reject`,
+      {}
+    );
+  }
+}

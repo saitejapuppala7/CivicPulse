@@ -17,6 +17,7 @@
         <th>ID</th>
         <th>Description</th>
         <th>Area</th>
+        <th>Zone</th>
         <th>Priority</th>
         <th>Status</th>
         <th>Action</th>
@@ -27,6 +28,7 @@
         <td>{{ complaint.id }}</td>
         <td>{{ complaint.description }}</td>
         <td>{{ complaint.address }}</td>
+        <td>{{complaint.zone}}</td>
         <td>{{ complaint.prioritySet }}</td>
 
         <td class="status {{ complaint.status }}">

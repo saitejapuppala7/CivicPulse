@@ -1,0 +1,31 @@
+<div class="heatmap-container">
+
+  <h3 class="heatmap-title">High Risk Areas (Heat Zones)</h3>
+
+  <table class="heatmap-table">
+    <thead>
+    <tr>
+      <th>Zone</th>
+      <th>Total Complaints</th>
+      <th>Risk Level</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr *ngFor="let zone of zones"
+        [ngClass]="{
+            'high-risk': zone.count > 100,
+            'medium-risk': zone.count > 50 && zone.count <= 100,
+            'low-risk': zone.count <= 50
+          }">
+
+      <td>{{ zone.zone }}</td>
+      <td>{{ zone.count }}</td>
+      <td>
+        {{ zone.count > 100 ? 'High' : (zone.count > 50 ? 'Medium' : 'Low') }}
+      </td>
+    </tr>
+    </tbody>
+  </table>
+
+</div>

@@ -48,6 +48,11 @@ public class Complaint {
     private String resolvedImageUrl;
     private Long rating;
     private String feedback;
+    private String zone;
+    private Integer slaHours;
+    @CreationTimestamp
+    private LocalDateTime createdAt;
+    private LocalDateTime resolvedAt;
 
 
     @CreationTimestamp
@@ -58,6 +63,39 @@ public class Complaint {
 
 
     public Complaint() {
+    }
+
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public LocalDateTime getResolvedAt() {
+        return resolvedAt;
+    }
+
+    public void setResolvedAt(LocalDateTime resolvedAt) {
+        this.resolvedAt = resolvedAt;
+    }
+
+
+    public Integer getSlaHours() {
+        return slaHours;
+    }
+
+    public String getZone() {
+        return zone;
+    }
+
+    public void setSlaHours(Integer slaHours) {
+        this.slaHours = slaHours;
+    }
+
+    public void setZone(String zone) {
+        this.zone = zone;
     }
 
     public void setRating(Long rating) {

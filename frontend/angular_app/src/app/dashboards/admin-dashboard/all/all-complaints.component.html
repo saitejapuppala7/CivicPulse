@@ -7,6 +7,7 @@
     <th>Citizen</th>
     <th>Problem</th>
     <th>Address</th>
+    <th>Zone</th>
     <th>Date</th>
     <th>Image</th>
     <th>Priority</th>
@@ -20,6 +21,7 @@
     <td>{{ complaint.name }}</td>
     <td>{{ complaint.description }}</td>
     <td>{{ complaint.address }}</td>
+    <td>{{complaint.zone}}</td>
     <td>{{ complaint.createdAt | date:'short' }}</td>
 
     <td>

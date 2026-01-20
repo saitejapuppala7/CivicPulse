@@ -1,8 +1,19 @@
 import { Component, OnInit } from '@angular/core';
+import { CategoryChartComponent } from '../../charts/category-chart/category-chart.component';
+import { ZoneChartComponent } from '../../charts/zone-chart/zone-chart.component';
+import { SlaChartComponent } from '../../charts/sla-chart/sla-chart.component';
+import { HeatmapComponent } from '../../charts/heatmap/heatmap.component';
+
 
 @Component({
   selector: 'app-admin-dashboard',
   standalone: true,
+   imports: [
+      CategoryChartComponent,
+      ZoneChartComponent,
+      SlaChartComponent,
+      HeatmapComponent
+    ],
   templateUrl: './admin-dashboard.component.html',
   styleUrls: ['./admin-dashboard.component.css']
 })
