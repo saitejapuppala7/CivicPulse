@@ -21,5 +21,25 @@
     <h3>High Priority</h3>
     <p>{{ highPriorityComplaints }}</p>
   </div>
+  <section class="analytics-section">
+
+    <h2 class="section-title">Admin Analytics Dashboard</h2>
+
+    <div class="charts-grid">
+
+      <div class="chart-card">
+        <app-zone-chart></app-zone-chart>
+      </div>
+
+      <div class="chart-card">
+        <app-sla-chart></app-sla-chart>
+      </div>
+
+      <div class="chart-card full-width">
+        <app-heatmap></app-heatmap>
+      </div>
+
+    </div>
+  </section>
 
 </div>

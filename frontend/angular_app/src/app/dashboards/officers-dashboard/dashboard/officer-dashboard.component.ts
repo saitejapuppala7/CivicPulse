@@ -1,7 +1,16 @@
 import { Component, OnInit } from '@angular/core';
+import { ZoneChartComponent } from '../../charts/zone-chart/zone-chart.component';
+import { SlaChartComponent } from '../../charts/sla-chart/sla-chart.component';
+import { HeatmapComponent } from '../../charts/heatmap/heatmap.component';
+
 
 @Component({
   selector: 'app-dashboard-overview',
+  imports: [
+        ZoneChartComponent,
+        SlaChartComponent,
+        HeatmapComponent
+      ],
   templateUrl: './officer-dashboard.component.html',
   styleUrls: ['./officer-dashboard.component.css']
 })
